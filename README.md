@@ -1,4 +1,3 @@
-# Simple Todo App using reactjs flux and redux.
+# Simple Todo App in Reactjs using flux and redux.
 
-Using redux will be uploaded soon.
-# react-flux-redux-todoApp
+Simple Todo App in Reactjs using flux and redux.
