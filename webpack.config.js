@@ -1,8 +1,16 @@
 var webpack = require('webpack');
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var APP_DIR = path.resolve(__dirname, 'ux/public/flux');
-var BUILD_DIR = path.resolve(__dirname, 'ux/public/build/flux');
+var frame = '/redux';
+var APP_DIR = path.resolve(__dirname, 'ux/public'+frame);
+var BUILD_DIR = path.resolve(__dirname, 'ux/public/build'+frame);
+
+var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: path.join(APP_DIR , '/index.html'),
+  filename: 'index.html',
+  inject: 'body'
+});
 
 var config = {
 	entry: APP_DIR + '/index.jsx',
@@ -18,7 +26,8 @@ var config = {
 		 	loader: 'babel-loader'
 		 }
 		]
-	}
+	},
+	plugins: [HTMLWebpackPluginConfig]
 };
 
 module.exports = config;

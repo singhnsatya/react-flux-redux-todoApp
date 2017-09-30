@@ -4,18 +4,7 @@ import dispatcher from '../dispatcher/dispatcher.js';
 class TodoStore extends EventEmitter {
 	constructor() {
 		super();
-			this.todos = [
-				{
-					id :1,
-					text: "Learn react",
-					complete: true
-				},
-				{
-					id :1,
-					text: "Learn flux",
-					complete: false
-				},
-			]
+			this.todos = []
 		}
 
 	getAll() {
@@ -36,7 +25,31 @@ class TodoStore extends EventEmitter {
 			case "RELOAD_TODO": {
 				this.reloadTodo(action.todos);
 			}
+			break;
+			case "DELETE_TODO": {
+				this.deleteTodo(action.id);
+			}
+			break;
+			case "COMPLETE_TODO": {
+				this.completeTodo(action.todo);
+			}
+			break;
 		}
+	}
+
+	completeTodo(todo) {
+		var todo = this.todos.filter((item) => {
+			return item.id === todo.id;
+		})[0];
+		todo.complete = !todo.complete;
+		this.emit('change');
+	}
+
+	deleteTodo(id) {
+		this.todos = this.todos.filter((i) => {
+			return i.id != id;
+		});
+		this.emit('change');
 	}
 
 	createTodo(text) {

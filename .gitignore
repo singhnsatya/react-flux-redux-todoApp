@@ -1,2 +1,7 @@
-/react-flux-redux-todoApp/node_modules
-/react-flux-redux-todoApp/ux/public/flux/build
+/node_modules
+/ux/public/build/flux
+/ux/public/build/flux/routes.jsx
+/ux/public/build/flux/components/ab.jsx
+/ux/public/build/redux
+/ux/public/redux/practice.jsx
+/ux/public/redux/practice1.jsx

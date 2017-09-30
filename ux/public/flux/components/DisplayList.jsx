@@ -1,4 +1,5 @@
 import React from 'react';
+import DisplayItem from './DisplayItem.jsx';
 
 export default class DisplayList extends React.Component {
 	constructor(props) {
@@ -6,18 +7,15 @@ export default class DisplayList extends React.Component {
 	}
 
 	render() {
-		return (
-				<div>
-				{
-					this.props.todos.map((i) => {
-						return (
-								<div>
-								<li key={i.id}>{i.text}</li>
-								</div>
-							)
-					})
-				}
-				</div>
-			)
+		return <div>
+						{
+							this.props.todos.map((todo, item) => {
+								return <DisplayItem todo={todo}
+								key={todo.id}
+								handleChange = {this.props.handleChange.bind(null, todo)}
+								handleDelete={this.props.handleDelete.bind(null, todo.id)} />
+							})
+						}
+					</div>;
 	}
 }

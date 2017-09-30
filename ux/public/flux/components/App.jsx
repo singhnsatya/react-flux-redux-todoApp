@@ -45,14 +45,24 @@ class App extends React.Component {
 		this.setState({text: e.target.value});
 	}
 
+	handleDelete(id) {
+		TodoActions.deleteTodo(id);
+	}
+
+	handleDone(todo) {
+		TodoActions.handleDone(todo);
+	}
+
 	render() {
 		const { todos } = this.state;
 		return (
 				<div>
 				<input onChange={this.onChange} value={this.state.text}/>
 				<button onClick={this.createTodo}>Add Todo</button>
-				<button onClick={this.reloadTodo}>Reload</button>
-				<DisplayList todos = {todos} />
+				<button onClick={this.reloadTodo}>Default Todos</button>
+				<DisplayList todos = {todos} 
+				handleDelete={this.handleDelete.bind(this)} 
+				handleChange = {this.handleDone.bind(this)}/>
 				</div>
 			)
 	}

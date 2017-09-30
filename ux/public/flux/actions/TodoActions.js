@@ -20,14 +20,21 @@ export function reloadTodo() {
 		todos: [
 				{
 					id :12,
-					text: "Learn reacthkjhjkhkj",
-					complete: true
+					text: "Learn react",
+					complete: false
 				},
 				{
 					id :18798,
 					text: "Learn flux completed",
-					complete: true
+					complete: false
 				},
 			],
+	});
+}
+
+export function handleDone(todo) {
+	dispatcher.dispatch({
+		type: 'COMPLETE_TODO',
+		todo,
 	});
 }
