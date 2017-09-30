@@ -1,5 +1,5 @@
 /node_modules
-/ux/public/build/flux/routes.jsx
-/ux/public/build/flux/components/ab.jsx
+/ux/public/flux/routes.jsx
+/ux/public/flux/components/ab.jsx
 /ux/public/redux/practice.jsx
 /ux/public/redux/practice1.jsx
